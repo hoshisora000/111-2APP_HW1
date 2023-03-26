@@ -17,10 +17,7 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
         var val1 = ""
         var val2 = ""
-        intent?.extras?.let{
-            var val1 = it.getString("inf1")
-            var val2 = it.getString("inf2")
-        }
+
 
         var sugarVolume="no input"
         val RadioGroup_sugar = findViewById<RadioGroup>(R.id.sugar)
@@ -38,7 +35,10 @@ class MainActivity2 : AppCompatActivity() {
 
         val button2 = findViewById<Button>(R.id.button2)
         button2.setOnClickListener {
-
+            intent?.extras?.let{
+                val1 = it.getString("inf1").toString()
+                val2 = it.getString("inf2").toString()
+            }
             var input_drink = findViewById<EditText>(R.id.drink).text
             val bundle=Bundle()
             bundle.putString("inf1",val1)
